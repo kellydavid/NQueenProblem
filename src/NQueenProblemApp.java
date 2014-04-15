@@ -5,8 +5,6 @@ public class NQueenProblemApp {
 	public boolean chessBoard[][]; 	// keeps track of entire chessboard
 	public boolean rows[]; 			// keeps track of the rows
 	public boolean columns[];		// keeps track of the columns
-	public boolean minorDiagonal[]; // top right -> bottom left
-	public boolean majorDiagonal[]; // top left -> bottom right
 
 	public static void main(String args[]){
 		NQueenProblemApp NQueenSolver = new NQueenProblemApp(8); // start NQueenSolver with N = 8
@@ -18,8 +16,6 @@ public class NQueenProblemApp {
 		this.chessBoard = new boolean[N][N];
 		this.rows = new boolean[N];
 		this.columns = new boolean[N];
-		this.minorDiagonal = new boolean[N];
-		this.majorDiagonal = new boolean[N];
 	}
 	
 	public boolean solveNQueenProblem(){
