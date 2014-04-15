@@ -1,23 +1,28 @@
 
 public class NQueenProblemApp {
 
-	public static boolean chessBoard[][];
+	public int N;
+	public boolean chessBoard[][]; 	// keeps track of entire chessboard
+	public boolean rows[]; 			// keeps track of the rows
+	public boolean columns[];		// keeps track of the columns
+	public boolean minorDiagonal[]; // top right -> bottom left
+	public boolean majorDiagonal[]; // top left -> bottom right
 
 	public static void main(String args[]){
-		int N = 8;
-		chessBoard = new boolean[N][N];
-		System.out.println(chessBoardToString(chessBoard));
-		chessBoard[3][6] = true;
-		chessBoard[0][0] = true;
-		System.out.println(chessBoardToString(chessBoard));
-		chessBoard[6][7] = true;
-		System.out.println(chessBoardToString(chessBoard));
-		System.out.println("3,6 " + (isAttackable(3,6,chessBoard) ? "attackable":"not attackable"));
-		System.out.println("6,7 " + (isAttackable(6,7,chessBoard) ? "attackable":"not attackable"));
-		System.out.println(chessBoardToString(chessBoard));
+		NQueenProblemApp NQueenSolver = new NQueenProblemApp(8); // start NQueenSolver with N = 8
+		NQueenSolver.solveNQueenProblem();						 // solve NQueen problem
 	}
 
-	public static boolean[][] solveNQueenProblem(int N){
+	public NQueenProblemApp(int N){
+		this.N = N;
+		this.chessBoard = new boolean[N][N];
+		this.rows = new boolean[N];
+		this.columns = new boolean[N];
+		this.minorDiagonal = new boolean[N];
+		this.majorDiagonal = new boolean[N];
+	}
+	
+	public boolean solveNQueenProblem(){
 		boolean chessBoard[][] = new boolean[N][N];
 		int queens[][] = new int[N][2]; // array of queen positions
 		int numberOfQueens = 0;
@@ -26,7 +31,7 @@ public class NQueenProblemApp {
 				
 			}
 		}
-		return chessBoard;
+		return true;
 	}
 	
 	/**
@@ -40,7 +45,7 @@ public class NQueenProblemApp {
 	 * @param chessBoard
 	 * @return
 	 */
-	public static boolean isAttackable(int row, int col, boolean chessBoard[][]){
+	private boolean isAttackable(int row, int col, boolean chessBoard[][]){
 		int i = 0;
 		int j = 0;
 		//check for attackers coming from left or right positions
@@ -84,7 +89,7 @@ public class NQueenProblemApp {
 		return false;
 	}
 
-	public static String chessBoardToString(boolean chessBoard[][]){
+	public String chessBoardToString(){
 		String print = "\n";
 		for(int i = 0; i < chessBoard.length; i++){
 			print += "|";
