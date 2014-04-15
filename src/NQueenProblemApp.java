@@ -17,6 +17,18 @@ public class NQueenProblemApp {
 		System.out.println(chessBoardToString(chessBoard));
 	}
 
+	public static boolean[][] solveNQueenProblem(int N){
+		boolean chessBoard[][] = new boolean[N][N];
+		int queens[][] = new int[N][2]; // array of queen positions
+		int numberOfQueens = 0;
+		while(numberOfQueens < N){
+			for(int i = 0; i < chessBoard.length; i++){
+				
+			}
+		}
+		return chessBoard;
+	}
+	
 	/**
 	 * Pass the row and the column of the queen to be checked whether it is attackable
 	 * or not. Pass the boolean 2-D array of chess board also.
