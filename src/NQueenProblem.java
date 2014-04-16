@@ -1,14 +1,14 @@
 import java.util.Arrays;
 
 
-public class NQueenProblemApp {
+public class NQueenProblem {
 
 	/**
 	 * Main method
 	 * @param args
 	 */
 	public static void main(String args[]){
-		NQueenProblemApp nQueenSolver = new NQueenProblemApp(3);
+		NQueenProblem nQueenSolver = new NQueenProblem(6);
 		System.out.println((nQueenSolver.solve() ? "Solved":"Not solved"));
 		System.out.println(nQueenSolver.toString());
 	}
@@ -21,7 +21,7 @@ public class NQueenProblemApp {
 	public int queens[]; // index of array is the row and value stored in array is the column
 	public int solveBoardCalls = 0;
 
-	public NQueenProblemApp(int N){
+	public NQueenProblem(int N){
 		this.N = N;
 		queens = new int[N];
 	}
