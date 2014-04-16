@@ -13,7 +13,7 @@ public class NQueenProblemApp {
 		System.out.println(nQueenSolver.toString());
 	}
 
-	
+
 	/*
 	 * Fields for the NQueenProblemApp class
 	 */
@@ -21,10 +21,11 @@ public class NQueenProblemApp {
 	public int queens[]; // index of array is the row and value stored in array is the column
 
 	public NQueenProblemApp(int N){
+		this.N = N;
 		queens = new int[N];
-		Arrays.fill(queens, -1); // fills the queens array with default -1 value
+		Arrays.fill(queens, 0); // fills the queens array with default -1 value
 	}
-	
+
 	public boolean solve(){
 		return solveBoard(0);
 	}
@@ -35,16 +36,12 @@ public class NQueenProblemApp {
 				queens[queen] = i;		// store the column number in the array of rows
 				if(queen == N - 1)		// if all the queens have been looped through return true
 					return true;
-				else{						//otherwise continue onto the next row
-					if(solveBoard(queen + 1))
-						return true;
-					else{
-						solveBoard(queen - 1);
-						return false;
-					}
+				if(solveBoard(queen + 1)){ // if the deeper solveBoard method returns true then return true
+					return true;
 				}
 			}
 		}
+		queens[queen] = 0;
 		return false;
 	}
 
