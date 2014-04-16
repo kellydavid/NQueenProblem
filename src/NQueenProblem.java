@@ -1,6 +1,10 @@
-import java.util.Arrays;
 
 
+/**
+ * @author David Kelly
+ * Github username: kellydavid
+ *
+ */
 public class NQueenProblem {
 
 	/**
@@ -8,7 +12,7 @@ public class NQueenProblem {
 	 * @param args
 	 */
 	public static void main(String args[]){
-		NQueenProblem nQueenSolver = new NQueenProblem(6);
+		NQueenProblem nQueenSolver = new NQueenProblem(8);
 		System.out.println((nQueenSolver.solve() ? "Solved":"Not solved"));
 		System.out.println(nQueenSolver.toString());
 	}
