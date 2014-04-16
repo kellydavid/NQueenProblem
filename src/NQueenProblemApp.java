@@ -8,7 +8,7 @@ public class NQueenProblemApp {
 	 * @param args
 	 */
 	public static void main(String args[]){
-		NQueenProblemApp nQueenSolver = new NQueenProblemApp(8);
+		NQueenProblemApp nQueenSolver = new NQueenProblemApp(3);
 		System.out.println((nQueenSolver.solve() ? "Solved":"Not solved"));
 		System.out.println(nQueenSolver.toString());
 	}
@@ -58,7 +58,7 @@ public class NQueenProblemApp {
 	 */
 	private boolean canPlace(int row, int col){
 		for(int i = 0; i < row; i++){
-			if(queens[i] == col || queens[i] - col == i - row){
+			if(queens[i] == col || Math.abs(queens[i] - col) == Math.abs(i - row)){
 				return false;
 			}
 		}
